@@ -13,11 +13,8 @@ The SQL agent follows a reflection-based workflow:
 
 ## Prerequisites
 
-Ensure you have a `.env` file in the root of the repository with API keys for:
-- `OPENAI_API_KEY` - OpenAI API access
-- `GOOGLE_API_KEY` - Google AI Studio access
-- `ANTHROPIC_API_KEY` - Anthropic Claude access
-- `TAVILY_API_KEY` - Tavily web search API access
+Ensure you have a `.env` file in the root of the repository with:
+- `ANTHROPIC_API_KEY` - Anthropic Claude API access
 
 Install dependencies from the root directory:
 ```bash
@@ -44,10 +41,10 @@ pip install -r requirements.txt
 
 3. **Example workflow**:
    ```python
-   results = run_sql_workflow("products.db", 
+   results = run_sql_workflow("products.db",
                               "Which color of product has the highest total sales?",
-                              model_generation="openai:gpt-4o-mini",
-                              model_evaluation="openai:gpt-4o")
+                              model_generation="anthropic:claude-sonnet-4-5-20250929",
+                              model_evaluation="anthropic:claude-sonnet-4-5-20250929")
    ```
 
 ## Database Schema
