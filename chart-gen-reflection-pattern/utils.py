@@ -20,9 +20,9 @@ load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 anthropic_api_key = os.getenv("ANTHROPIC_API_KEY")
 
-# Both clients read keys from env by default; explicit is also fine:
-openai_client = OpenAI(api_key=openai_api_key) if openai_api_key else OpenAI()
-anthropic_client = Anthropic(api_key=anthropic_api_key) if anthropic_api_key else Anthropic()
+# Only create clients when the corresponding API key is available:
+openai_client = OpenAI(api_key=openai_api_key) if openai_api_key else None
+anthropic_client = Anthropic(api_key=anthropic_api_key) if anthropic_api_key else None
 
 
 def get_response(model: str, prompt: str) -> str:
