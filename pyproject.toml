@@ -1,0 +1,75 @@
+[project]
+name = "deeplearning-ai-agentic-cource"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aisuite==0.1.11",
+    "anthropic>=0.79.0",
+    "docstring-parser>=0.17.0",
+    "duckdb>=1.4.4",
+    "fastapi>=0.129.0",
+    "ipywidgets>=8.1.8",
+    "jinja2>=3.1.6",
+    "jupyter-server>=2.17.0",
+    "markdown>=3.10.2",
+    "matplotlib>=3.10.8",
+    "mistralai>=1.5.2",
+    "nbclassic>=1.3.3",
+    "notebook>=7.5.3",
+    "openai>=2.21.0",
+    "pandas>=3.0.0",
+    "psycopg2-binary>=2.9.11",
+    "pydantic[email]>=2.12.5",
+    "python-dotenv>=1.2.1",
+    "python-multipart>=0.0.22",
+    "qrcode>=8.2",
+    "requests>=2.32.5",
+    "scikit-learn>=1.8.0",
+    "seaborn>=0.13.2",
+    "sqlalchemy>=2.0.46",
+    "tabulate>=0.9.0",
+    "tavily-python>=0.7.12",
+    "textstat>=0.7.12",
+    "tinydb>=4.8.2",
+    "uvicorn>=0.40.0",
+    "vertexai>=1.71.1",
+    "wikipedia>=1.4.0",
+]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D",       # pydocstyle — disable docstring enforcement
+    "COM812",  # trailing-comma-missing (conflicts with ruff formatter)
+    "ISC001",  # single-line-implicit-string-concat (conflicts with ruff formatter)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = [
+    "S101",    # assert allowed in tests
+    "ARG",     # unused function args (fixtures)
+    "FBT",     # booleans as positional args in tests
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["deeplearning_ai_agentic_cource"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
